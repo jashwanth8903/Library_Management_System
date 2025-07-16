@@ -1,28 +1,57 @@
 # Library Management System in C++
-# Project Overview:
-The Library Management System is a console-based application developed in C++ that allows admins and students to manage library resources effectively. The system enables students to access the library data by registering or logging in to their accounts. Admins have the ability to manage the books and students' accounts. The system supports adding, editing, and viewing books, as well as managing student accounts, issuing books, and handling fines.
 
-# Key Features:
-User Authentication: The system provides a login option for both admins and students, protected by a password.
+## Project Overview
+The Library Management System is a console-based application developed in C++ that allows both admins and students to manage library resources efficiently. The system supports dynamic book and student management using linked lists, providing a scalable and organized solution for library operations.
 
-# Admin Functions:
-  1. Add a book to the system: The admin can add new books to the library.
-  2. Edit the details of the book: The admin can edit the title and author of a book using its ISBN number.
-  3. View the status of books: The admin can view the list and availability of books in the library.
-  4. View enrolled students: The admin can view the list of students registered in the system, sorted by their roll numbers.
-  5. View student balance: The admin can view the account balance of a specific student.
+## Key Features
 
-# Student Functions:
-  1. Create an account: A new student can register by providing their roll number, name, and initial deposit.
-  2. View balance: Students can view their account balance.
-  3. Deposit amount: Students can deposit money into their accounts.
-  4. Issue a book: Students can issue books from the list of available books.
+### User Authentication
+- Login options for both Admin and Student roles, protected by a password.
 
-Account management: The system supports up to 20 students, who pay $20 for account opening and $30 as a security deposit. Students can issue any book for $2 for a 10-day period. Fines are imposed for late returns as per the specified rules.
+### Admin Functions
+1. **Add a Book:** Add new books to the library by entering the title, author, and ISBN.
+2. **Edit Book Details:** Edit the title and author of a book using its ISBN number.
+3. **View Book Status:** View the complete list of books and their availability in the library.
+4. **View Enrolled Students:** View the list of all registered students, sorted by their roll numbers.
+5. **View Student Balance:** Check the account balance of any student by roll number.
+6. **Delete a Book:** Remove a book from the library using its ISBN number.
+7. **Search Book by Author:** Find all books by a specific author and view their details and availability.
 
-Data storage: The system uses 2D arrays to store the details of students and books. Initially, 15 books are stored in the library. Each student account contains the roll number, balance, and first name.
+### Student Functions
+1. **Create an Account:** Register as a new student by providing roll number, name, and an initial deposit.
+2. **View Balance:** Check your current account balance.
+3. **Deposit Amount:** Add money to your account balance.
+4. **Issue a Book:** Issue a book from the list of available books (each issue costs $2).
+5. **Return a Book:** Return a previously issued book to the library.
 
-# Implementation Details:
-The application is implemented in C++ without using classes, pointers, or structures. It employs 2D arrays, functions, loops, if-else, and switch operators to achieve the desired functionality. The main() function handles user inputs, presents options to the user, and calls appropriate functions based on the selected options. The program runs in a loop until the user decides to exit.
+### Account and Book Management
+- Each student pays $20 for account opening and $30 as a security deposit.
+- Students can issue any book for $2 for a 10-day period.
+- The system can be easily extended to support fines for late returns.
 
-This project is suitable for students who have completed a Programming Fundamentals course or lab and want to demonstrate their skills in C++ programming without using advanced concepts like classes or pointers. It provides a solid foundation for further learning and improvement in C++ and software development.
+- All book and student data is managed using modern C++ STL hash tables (`std::unordered_map`) for fast and efficient storage and lookup.
+
+### Data Storage & Persistence
+- Uses `std::unordered_map` (hash tables) to store details of students and books, providing O(1) average time for add, search, edit, and delete operations.
+- All data is persisted to files (`books.txt` and `students.txt`) and automatically loaded/saved on program start/exit.
+- Each student account contains roll number, name, and balance.
+
+## Implementation Details
+- Implemented in modern C++ using structures, STL containers (`std::unordered_map`, `std::vector`), and modular functions.
+- Robust error handling for all user input and file operations.
+- The main menu allows users to select their role and perform multiple actions until they choose to log out or exit.
+- Clear success and error messages are displayed after every operation for better user experience.
+
+## How to Run
+1. Compile the `main.cpp` file using a C++ compiler (e.g., `g++ main.cpp -o main.exe`).
+2. Run the executable (`main.exe` on Windows or `./main` on Linux/Mac).
+3. Follow the on-screen instructions to log in as Admin or Student and use the system features.
+
+## Suitable For
+- Students and professionals who want to learn about efficient data structures (hash tables), persistent data management, and modular programming in C++.
+- Demonstrating modern C++ and STL skills in a practical, real-world application.
+
+---
+
+**Note:**
+- This project can be further enhanced by adding fine calculation, book reservation, a graphical user interface (GUI) using libraries like Qt or wxWidgets, and more advanced security features.
